@@ -3,24 +3,18 @@ import { Link } from "react-router-dom";
 import './SignUp.css';
 
 
-export const SignUp = () => {
+export const SignIn = () => {
   // ============= Initial State Start here =============
-  const [clientName, setClientName] = useState ("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // ============= Initial State End here ===============
   // ============= Error Msg Start here =================
-  const [errClientName, setErrClientName] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
 
   // ============= Error Msg End here ===================
   const [successMsg, setSuccessMsg] = useState("");
   // ============= Event Handler Start here =============
-  const handleName = (e) => {
-    setClientName(e.target.value);
-    setErrClientName("");
-  };
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
@@ -30,51 +24,24 @@ export const SignUp = () => {
     setErrPassword("");
   };
   // ============= Event Handler End here ===============
-  // ================= Email Validation start here =============
-  const EmailValidation = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-  };
-  // ================= Email Validation End here ===============
-
   const handleSignUp = (e) => {
     e.preventDefault();
-    // if (checked) {
-      if (!clientName) {
-        setErrClientName("Enter your name");
-      }
-      if (!email) {
-        setErrEmail("Enter your email");
-      } else {
-        if (!EmailValidation(email)) {
-          setErrEmail("Enter a Valid email");
-        }
-      }
-      if (!password) {
-        setErrPassword("Create a password");
-      } else {
-        if (password.length < 6) {
-          setErrPassword("Passwords must be at least 6 characters");
-        }
-      }
 
-      // ============== Getting the value ==============
-      if (
-        clientName &&
-        email &&
-        EmailValidation(email) &&
-        password &&
-        password.length >= 6 
-      ) {
-        setSuccessMsg(
-          `Hello dear ${clientName}, Thank u for joining us. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-        );
-        setClientName("");
-        setEmail("");
-        setPassword ("");
-      }
-    // }
+    if (!email) {
+      setErrEmail("Enter your email");
+    }
+
+    if (!password) {
+      setErrPassword("Create a password");
+    }
+    // ============== Getting the value ==============
+    if (email && password) {
+      setSuccessMsg(
+        `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+      );
+      setEmail("");
+      setPassword("");
+    }
   };
   return (
       <div className="App">
@@ -83,11 +50,12 @@ export const SignUp = () => {
             <p className="success">
               {successMsg}
             </p>
-            <Link to="/signIn">
+            <Link to="/signup">
               <button
-                className="bts"
+                className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
+            tracking-wide hover:bg-black hover:text-white duration-300"
               >
-                Sign in
+                Sign Up
               </button>
             </Link>
           </div>
@@ -95,21 +63,8 @@ export const SignUp = () => {
           <form className="done">
             <div className="done2">
               <h3>
-                Sign up
+                Sign in
               </h3>
-                  <input
-                    onChange={handleName}
-                    value={clientName}
-                   className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="enter your full name"
-                  />
-                  {errClientName && (
-                    <p className="name">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errClientName}
-                    </p>
-                  )}
                   <input
                     onChange={handleEmail}
                     value={email}
@@ -136,17 +91,17 @@ export const SignUp = () => {
                       {errPassword}
                     </p>
                   )}
-                  
                 <button
                   onClick={handleSignUp}
+                  className="bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md  duration-300"
                 >
-                  Create Account
+                  Sign In
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
                   Don't have an Account?{" "}
-                  <Link to="/signIn">
+                  <Link to="/signUp">
                     <span className="hover:text-blue-600 duration-300">
-                      Sign in
+                      Sign up
                     </span>
                   </Link>
                 </p>
