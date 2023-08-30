@@ -1,0 +1,7 @@
+body {
+    background-color: red
+}
+
+.done input {
+    border: 2px solid red;
+}
