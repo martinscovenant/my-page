@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import './View.css';
+import './View.css';
 
 
 
@@ -48,6 +48,12 @@ export const ViewAllReport = () => {
         setDuration(e.target.value);
         setErrDuration("");
       };
+
+      const LinkValidation = (link) => {
+        return String(link)
+          .toLowerCase()
+          .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+      };
     // ============= Event Handler End here ===============
   
     const handleViewAllReport = (e) => {
@@ -68,7 +74,11 @@ export const ViewAllReport = () => {
 
            if (!link) {
             setErrLink("put your link");
-           } 
+           } else {
+            if (!LinkValidation(link)) {
+              setErrLink("Enter a Valid Link");
+            }
+          }
   
            if (!duration) {
             setErrDuration("fill in duration");
@@ -80,6 +90,7 @@ export const ViewAllReport = () => {
           task &&
           status &&
           link && 
+          LinkValidation(link) &&
           duration
         ) {
           setSuccessMsg(
@@ -187,7 +198,7 @@ export const ViewAllReport = () => {
                       onChange={handleDuration}
                       value={duration}
                       className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="time"
+                      type="text"
                       placeholder="Duration"
                     />
                     {errDuration && (
@@ -198,6 +209,7 @@ export const ViewAllReport = () => {
                     )}
                     
                   <button
+                  className="bts"
                     onClick={handleViewAllReport}
                   >
                     submit

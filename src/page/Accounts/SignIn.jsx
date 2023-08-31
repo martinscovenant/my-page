@@ -99,7 +99,7 @@ export const SignIn = () => {
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
                   Don't have an Account?{" "}
-                  <Link to="/signUp">
+                  <Link to="/">
                     <span className="hover:text-blue-600 duration-300">
                       Sign up
                     </span>
