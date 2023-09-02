@@ -52,7 +52,7 @@ export const ViewAllReport = () => {
       const LinkValidation = (link) => {
         return String(link)
           .toLowerCase()
-          .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
+         .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
       };
     // ============= Event Handler End here ===============
   
@@ -107,7 +107,7 @@ export const ViewAllReport = () => {
     };
     return (
         <div className="App">
-          {successMsg ? (
+          {successMsg ? ( 
             <div className="w-[500px]">
               <p className="success">
                 {successMsg}
