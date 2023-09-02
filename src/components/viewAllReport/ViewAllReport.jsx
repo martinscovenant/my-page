@@ -121,11 +121,11 @@ export const ViewAllReport = () => {
               </Link>
             </div>
           ) : (
-            <form className="done">
-              <div className="done2">
-                <h3>
+            <form className="done1">
+              < div className="done2">
+                <h4>
                   Fill in Report
-                </h3>
+                </h4>
                     <input
                       onChange={handleDate}
                       value={date}
@@ -209,7 +209,7 @@ export const ViewAllReport = () => {
                     )}
                     
                   <button
-                  className="bts"
+                  className="bst"
                     onClick={handleViewAllReport}
                   >
                     submit
