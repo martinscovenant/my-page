@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import './SignUp.css'
+
 
  export const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +31,10 @@ import { Link } from "react-router-dom";
           
 
 
-        if (formData.email && formData.password) {
+        if (
+          formData.email && 
+          formData.password
+          ) {
                 
                setFormData((prevData) => ({
                 ...prevData,
@@ -120,6 +125,7 @@ import { Link } from "react-router-dom";
             </form>
            
          </div>
+         
      );
    };
 

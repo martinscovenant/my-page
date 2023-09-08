@@ -1,160 +1,200 @@
-import React, { useState } from "react";
+
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import './SignUp.css';
 
+ export const SignUp = () => {
+  const [formData, setFormData] = useState({
+    userName: '',
+    firstName: '',
+    lastName: '',
+    middleName: '',
+    email: '',
+    password: '',
+  });
 
-export const SignUp = () => {
-  // ============= Initial State Start here =============
-  const [clientName, setClientName] = useState ("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  // ============= Initial State End here ===============
-  // ============= Error Msg Start here =================
-  const [errClientName, setErrClientName] = useState("");
-  const [errEmail, setErrEmail] = useState("");
-  const [errPassword, setErrPassword] = useState("");
+  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData ((prevData) => ({
+      ...prevData, 
+      [name]:
+      value,
+    }))
+  };
 
-  // ============= Error Msg End here ===================
-  const [successMsg, setSuccessMsg] = useState("");
-  // ============= Event Handler Start here =============
-  const handleName = (e) => {
-    setClientName(e.target.value);
-    setErrClientName("");
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setErrEmail("");
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setErrPassword("");
-  };
-  // ============= Event Handler End here ===============
-  // ================= Email Validation start here =============
-  const EmailValidation = (email) => {
-    return String(email)
-      .toLowerCase()
-      .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-  };
-  // ================= Email Validation End here ===============
-
-  const handleSignUp = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (checked) {
-      if (!clientName) {
-        setErrClientName("Enter your name");
-      }
-      if (!email) {
-        setErrEmail("Enter your email");
-      } else {
-        if (!EmailValidation(email)) {
-          setErrEmail("Enter a Valid email");
-        }
-      }
-      if (!password) {
-        setErrPassword("Create a password");
-      } else {
-        if (password.length < 6) {
-          setErrPassword("Passwords must be at least 6 characters");
-        }
-      }
 
-      // ============== Getting the value ==============
-      if (
-        clientName &&
-        email &&
-        EmailValidation(email) &&
-        password &&
-        password.length >= 6 
-      ) {
-        setSuccessMsg(
-          `Hello dear ${clientName}, Thank u for joining us. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-        );
-        setClientName("");
-        setEmail("");
-        setPassword ("");
+    if (!formData.userName) {
+
+    }
+
+    if (!formData.firstName) {
+
+    }
+
+    if (!formData.lastName) {
+
+    }
+
+    if (!formData.middleName) {
+
+    }
+
+     if (!formData.email) {
+
       }
-    // }
+      
+        if (!formData.password) {
+          
+
+
+        if (
+          formData.userName &&
+          formData.firstName &&
+          formData.lastName &&
+          formData.middleName &&
+          formData.email && 
+          formData.password
+          ) {
+                
+               setFormData((prevData) => ({
+                ...prevData,
+                userName: '',
+                firstName: '',
+                lastName: '',
+                middleName: '',
+               email: '',
+               password: '',
+               }));
+               }
+           };
+
+    try {
+      const response = await fetch('https://timesheet-api-main.onrender.com/user/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'a57cca53d2086ab3488b358eebbca2e7',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+         console.log('Login was successful.')
+      } else {
+        alert('Signup failed.')
+      }
+    } catch (error) {
+      console.log('An error occured:', error)
+    } 
+
   };
+
   return (
-      <div className="App">
-        {successMsg ? (
+   
+    <div className="App">
           <div className="w-[500px]">
-            <p className="success">
-              {successMsg}
-            </p>
-            <Link to="/signIn">
-              <button
-                className="bts"
-              >
-                Sign in
-              </button>
+         <p className="success">
+             </p>
+           <Link to="/signIn">
             </Link>
-          </div>
-        ) : (
-          <form className="done">
-            <div className="done2">
+          </div> 
+          <form onChange={handleInputChange}>
+            <div className="done">
               <h3>
                 Sign up
               </h3>
-                  <input
-                    onChange={handleName}
-                    value={clientName}
-                   className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                    type="text"
-                    placeholder="enter your full name"
+                  <input 
+                  name='userName'
+                  id='userName'
+                  onChange={handleInputChange}
+                  value={formData.userName}
+                  className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                  type='userName'
+                  placeholder='User Name'
+                  required
                   />
-                  {errClientName && (
-                    <p className="name">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errClientName}
-                    </p>
-                  )}
+
+                   <input 
+                     name='firstName'
+                     id='firstName'
+                     onChange={handleInputChange}
+                     value={formData.firstName}
+                    className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                    type='text'
+                    placeholder='first name'
+                    required
+                  />
+                <input 
+                  name='lastName'
+                  id='lastName'
+                  onChange={handleInputChange}
+                  value={formData.lastName}
+                  className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                  type='text'
+                  placeholder='Last name'
+                  required
+                  />
+                  
+                  <input 
+                  name='middleName'
+                  id='middleName'
+                  onChange={handleInputChange}
+                  value={formData.middleName}
+                  className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                  type='text'
+                  placeholder='Middle name'
+                  required
+                  />
+
                   <input
-                    onChange={handleEmail}
-                    value={email}
+                    name='email'
+                    id='email'
+                    onChange={handleInputChange}
+                    value={formData.email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="martins@gmail.com"
+                    placeholder="Email"
+                    required
                   />
-                  {errEmail && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errEmail}
-                    </p>
-                  )}
+                
                   <input
-                    onChange={handlePassword}
-                    value={password}
+                  name='password'
+                  id='password'
+                    onChange={handleInputChange}
+                    value={formData.password}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
                     placeholder="Create password"
+                    required
                   />
-                  {errPassword && (
-                    <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                      <span className="font-bold italic mr-1">!</span>
-                      {errPassword}
-                    </p>
-                  )}
-                  
+                 
                 <button
-                  onClick={handleSignUp}
+                  onClick={handleSubmit}
+                  className="bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md  duration-300"
                 >
-                  Create Account
-                </button>
-                <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
-                  <Link to="/signIn">
-                    <span className="hover:text-blue-600 duration-300">
-                      Sign in
-                    </span>
-                  </Link>
-                </p>
-              </div>
-          </form>
-        )}
-      </div>
-  );
-};
+                  Sign up
+                   </button>
+                   <p className="text-sm text-center font-titleFont font-medium">
+                     Don't have an Account?{" "}
+                     <Link to="/">
+                       <span className="hover:text-blue-600 duration-300">
+                        Sign in
+                      </span>
+                    </Link>
+                  </p>
+                </div>
+            </form>
+           
+         </div>
+     );
+   };
+
+
+
+
+
 
 
