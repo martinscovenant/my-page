@@ -380,7 +380,6 @@ export const UpdateReport = () => {
           <table className=" mx-auto">
             <thead>
               <th className="border-2 border-solid border-black p-1"> S/N </th>
-              <th className="border-2 border-solid border-black p-1"> NAME </th>
               <th className="border-2 border-solid border-black p-1"> DATE </th>
               <th className="border-2 border-solid border-black p-1">PROJECT</th>
               <th className="border-2 border-solid border-black p-1"> TASK </th>
