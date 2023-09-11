@@ -81,7 +81,7 @@ export const ViewAllReport = () => {
            if (!duration) {
             setErrDuration("fill in duration");
            } 
-        // ============== Getting the value ==============
+           
         if (
           date &&
           project &&
@@ -101,7 +101,6 @@ export const ViewAllReport = () => {
           setLink("");
           setDuration("");
         }
-      // }
     };
     return (
         <div className="App">
