@@ -84,7 +84,6 @@ export const UpdateReport = () => {
         
 
       if (response.status === 201) {
-        // Fixed the status check
         setReportEntries([...reportEntries, requestData]);
         console.log("Your report has been submitted successfully.");
       } else {
@@ -278,8 +277,8 @@ export const UpdateReport = () => {
                 >
                   {loading ? (
                     <div>
-                      <FontAwesomeIcon icon={ faSpinner  } spin />{" "}
-                      <span> Submitting </span>{" "}
+                      <FontAwesomeIcon icon={ faSpinner  } spin />
+                      <span> Submitting </span>
                     </div>
                   ) : (
                     "Save changes"
@@ -367,7 +366,7 @@ export const UpdateReport = () => {
                 {loading ? (
                   <div>
                     {" "}
-                    <FontAwesomeIcon icon={ faSpinner  } spin />{" "}
+                    <FontAwesomeIcon icon={ faSpinner  } spin />
                     <span> Submitting </span>
                   </div>
                 ) : (
