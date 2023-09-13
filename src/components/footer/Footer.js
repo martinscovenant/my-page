@@ -126,7 +126,7 @@ export const Footer = () => {
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="w-full text-center text-base font-titleFont font-semibold text-green-600"
+                // className="w-full text-center text-base font-titleFont font-semibold text-green-600"
               >
                 Subscribed Successfully !
               </motion.p>
