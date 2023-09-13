@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
  import { FaFacebook, FaYoutube, FaLinkedin, FaGithub } from "react-icons/fa";
 import FooterListTitle from "./FooterListTitle";
+// import { paymentCard } from "../../../assets/images";
+// import Image from "../../designLayouts/Image";
 
-export const Footer = () => {
+const Footer = () => {
   const [emailInfo, setEmailInfo] = useState("");
   const [subscription, setSubscription] = useState(false);
   const [errMsg, setErrMsg] = useState("");
@@ -126,7 +128,7 @@ export const Footer = () => {
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                // className="w-full text-center text-base font-titleFont font-semibold text-green-600"
+                className="w-full text-center text-base font-titleFont font-semibold text-green-600"
               >
                 Subscribed Successfully !
               </motion.p>
@@ -154,6 +156,13 @@ export const Footer = () => {
                 </button>
               </div>
             )}
+
+            {/* <Image
+              className={`w-[80%] lg:w-[60%] mx-auto ${
+                subscription ? "mt-2" : "mt-6"
+              }`}
+              imgSrc={paymentCard}
+            /> */}
           </div>
         </div>
       </div>
@@ -161,4 +170,4 @@ export const Footer = () => {
   );
 };
 
-
+export default Footer;
