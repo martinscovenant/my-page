@@ -1,0 +1,96 @@
+:root{
+    --primary: #00A97F;
+    --light:rgba(133,198,218,255);
+    --dark:rgba(13,13,10,255);
+    --darker:rgba(234,157,90,255);
+    --lighter:#cbd6cf;
+    --lighter1:#c3dacc86;
+    --lighter2:#e4f0e9da;
+    --darken: #cca27e;
+    --color: orangered;
+    --search: #FF6000;
+    --primary1: #2b3d4c;
+    --primary2: #354d61;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.banner .back-details{
+    background-image: url(/public/image/work2.jpg);
+    height: 50vh;
+    background-position: top 70% right 0;
+    background-size: cover;
+    width: 100%;
+    padding: 0 80px;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .banner .back-details h1{
+    font-size: 25px;
+    text-align: center;
+    
+  }
+  .banner .back-details h2{
+    font-size: 32px;
+  }
+  
+  .banner .back-details p{
+    color: var(--primary1);
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .banner .back-details {
+      height: auto;
+      background-position: center;
+      padding: 50px;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .banner .back-details h1 {
+      font-size: 36px;
+    }
+  
+    .banner .back-details h2 {
+      font-size: 24px;
+    }
+  }
+  
+  #button-link {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 12px 24px;
+    background-color: var(--primary1);
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.5s ease;
+  }
+  
+  #button-link:hover{
+    background-color: transparent;
+    border: 1px solid var(--primary1);
+    color: var(--primary1);
+  }
+  
+  #button-linker {
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 12px 24px;
+    background-color: var(--primary1);
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.5s ease;
+  }
+  
+  #button-linker:hover{
+    background-color: var(--primary);
+    border: 1px solid transparent;
+    color: white;
+  }

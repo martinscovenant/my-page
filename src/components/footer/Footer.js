@@ -156,13 +156,6 @@ const Footer = () => {
                 </button>
               </div>
             )}
-
-            {/* <Image
-              className={`w-[80%] lg:w-[60%] mx-auto ${
-                subscription ? "mt-2" : "mt-6"
-              }`}
-              imgSrc={paymentCard}
-            /> */}
           </div>
         </div>
       </div>
