@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import FooterListTitle from "./FooterListTitle";
 // import { paymentCard } from "../../../assets/images";
 // import Image from "../../designLayouts/Image";
+import './Footer.css';
 
 const Footer = () => {
   const [emailInfo, setEmailInfo] = useState("");

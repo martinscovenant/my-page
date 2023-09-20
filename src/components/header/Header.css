@@ -1,32 +1,129 @@
-/* *{
+*{
     margin: auto;
     padding: auto;
     box-sizing: border-box
-}  */
+} 
 
-.header{
-    background-color: aqua;
+:root{
+    --primary: #00A97F;
+    --light:rgba(133,198,218,255);
+    --dark:rgba(13,13,10,255);
+    --darker:rgba(234,157,90,255);
+    --lighter:#cbd6cf;
+    --lighter1:#c3dacc86;
+    --lighter2:#e4f0e9da;
+    --darken: #cca27e;
+    --color: orangered;
+    --search: #FF6000;
+    --primary1: #2b3d4c;
+    --primary2: #354d61;
 }
+
+h1{
+  font-weight: 600;
+  font-size: 40px;
+  color: var(--search);
+}
+
+h2{
+  font-weight: 400;
+  font-size: 24px;
+}
+
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+  transition: 0.5s ease;
+  
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+p{
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--primary1);
+}
+
+button{
+    padding: 12px 10px;
+    font-size: 14px;
+    background: transparent;
+    border-radius: 10px;
+    border: 1px solid var(--lighter);
+  }
+  
+  input:focus{
+    outline: none;
+  }
+  .gap-3{
+    padding: 0 10px;
+  }
+  
+  .links{
+    padding: 0 10px;
+  }
+  .navbar-middle{
+    background-color: var(--lighter);
+    transition: 0.5s ease;
+  }
+  
+  .navbar-middle .menu-links a{
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+      letter-spacing: 0.3;
+      text-transform: uppercase;
+      transition: 0.5s ease;
+      margin-left: 20px;
+  }
+
+  
+  .navbar-toggler-icon{
+   font-size: 18px;
+   display: inline;
+   position: absolute;
+   left: 10px;
+   border: none;
+   top: 12px;
+  }
+  
+  .active{
+    color: var(--primary);
+    text-decoration: underline;
+  }
+  
+  
+  .not-active{
+    color: var(--primary1);
+  }
+  
+  
+  #color-link{
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.5s ease;
+  }
+  
+  #color-link:hover{
+    color: var(--primary1);
+  } 
+  
+  .color-nav{
+    color: var(--darker);
+  }
 
 .nav-list{
     list-style: none;
     padding: 0;
 }
 
-.nav-item {
-    margin: 0px;
-    list-style: none;
-    padding: 0;
-    overflow: hidden;
-    text-align: right;
-    border: none;
-}
-
-.btn{
-    justify-content: right;
-    align-items: end;
-    
-}
 
 .nav-links {
      font-weight: bold;
@@ -40,10 +137,11 @@
     align-items: center;
 }
 .form-control{
-    border-radius: 6px;
+    border-radius: 10%;
     width: 20%;
     padding: 10px;
     margin-right: 8px;
+
 }
 .input{
     border-radius: 6px;

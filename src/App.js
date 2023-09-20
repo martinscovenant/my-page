@@ -1,6 +1,6 @@
 import './App.css';
-// import { Header } from './components/header/Header'
-   import { Home } from './page/Home'
+import { Header } from './components/header/Header'
+   // import { Home } from './page/Home'
 // import { SignUp } from './page/Accounts/SignUp';
 // import { SignIn } from './page/Accounts/SignIn';
 // import { ViewAllReport } from './components/viewAllReport/ViewAllReport';
@@ -14,8 +14,8 @@ function App() {
 
    return(
  <Routes>
-   <Route path='/' element={< Home />} />
-  {/* <Route path='/' element={< Header/>}/> */}
+   {/* <Route path='/' element={< Home />} /> */}
+  <Route path='/' element={< Header/>}/>
      {/* <Route path='/' element={<SignUp/>}/>
    <Route path='/SignIn' element={<SignIn/>}/>   
    <Route path='/' element={<ViewAllReport/>}/> */}
