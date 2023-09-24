@@ -13,19 +13,17 @@ import './SignUp.css';
     password: '',
   });
 
-  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData ((prevData) => ({
       ...prevData, 
       [name]:
       value,
-    }))
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!formData.userName) {
 
     }
@@ -48,8 +46,6 @@ import './SignUp.css';
       
         if (!formData.password) {
           
-
-
         if (
           formData.userName &&
           formData.firstName &&
@@ -179,7 +175,7 @@ import './SignUp.css';
                    </button>
                    <p className="text-sm text-center font-titleFont font-medium">
                      Don't have an Account?{" "}
-                     <Link to="/">
+                     <Link to="/SigIn">
                        <span className="hover:text-blue-600 duration-300">
                         Sign in
                       </span>

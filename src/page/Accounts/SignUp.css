@@ -1,14 +1,14 @@
 *{
-    margin: auto;
-    padding: auto;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     background-image: url(/public/image/back.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
+} */
 h3{
     color: white;
     font-family: 'Tangerine', serif;

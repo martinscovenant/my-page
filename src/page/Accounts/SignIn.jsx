@@ -1,8 +1,7 @@
 
-
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import './SignUp.css'
+import './SignUp.css';
 
 
  export const SignIn = () => {
@@ -18,7 +17,7 @@ import './SignUp.css'
       ...prevData, 
       [name]:
       value,
-    }))
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -71,7 +70,7 @@ import './SignUp.css'
           <div className="w-[500px]">
          <p className="success">
              </p>
-           <Link to="/signup">
+           <Link to="/SignUp">
                  <button
                 className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"

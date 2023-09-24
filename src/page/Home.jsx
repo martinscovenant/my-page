@@ -10,9 +10,9 @@ export const Home = () => {
     return (
     <section className="banner">
       <div className="">
-        <div className="fs-20px">
-            <div className="col-lg-12 col-md-12 col-sm-12"> 
-            <div className="d-flex fle">
+        {/* <div className="fs-20px"> */}
+            {/* <div className="col-lg-12 col-md-12 col-sm-12">  */}
+            {/* <div className="d-flex fle"> */}
               <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className='back-details'>
@@ -27,9 +27,9 @@ export const Home = () => {
                 </div>
               </div>
             </div>
-            </div>
-        </div>
-      </div>
+            {/* </div> */}
+        {/* </div> */}
+      {/* </div> */}
     </section>
     )
 }

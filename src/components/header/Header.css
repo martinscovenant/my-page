@@ -95,7 +95,7 @@ button{
   
   .active{
     color: var(--primary);
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   

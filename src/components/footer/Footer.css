@@ -1,53 +1,73 @@
+ :root{
+  --primary: #00A97F;
+  --light:rgba(133,198,218,255);
+  --dark:rgba(13,13,10,255);
+  --darker:rgba(234,157,90,255);
+  --lighter:#cbd6cf;
+  --lighter1:#c3dacc86;
+  --lighter2:#e4f0e9da;
+  --darken: #cca27e;
+  --color: orangered;
+  --search: #FF6000;
+  --primary1: #2b3d4c;
+  --primary2: #354d61;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 footer .pay img{
-    padding: 10px 8px;
-    margin-right: 5px;
-    border-radius: 10px;
-    border: 1px solid var(--primary);
-    transition: 0.5s ease;
-  }
-  
-  footer .pay img:hover {
-    transform: translateY(-10px);
-  }
-  
-  footer .socials{
-    margin: 0 10px;
-  }
-  
-  #footer-link{
-    font-size: 18px;
-    margin: 0 10px;
-    color: var(--darken);
-    transition: 0.5s ease;
-  }
-  #footer-link:hover{
-    color: var(--search);
-  }
-  footer p{
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  #footer-links{
-    font-size: 16px;
-    color: var(--primary1);
-    transition: 0.5s ease;
-  }
-  
-  #footer-links:hover{
-    color: var(--search);
-  }
-  
-  footer .footer-title{
-    border-bottom: 2px solid var(--darken);
-    width: 30%;
-  }
-  
-  footer .footer-tel{
-    color: var(--darken);
-    transition: 0.5s ease;
-  }
-  
-  footer .footer-tel:hover{
-    color: var(--primary1);
-  }
+  padding: 10px 8px;
+  margin-right: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  transition: 0.5s ease;
+}
+
+footer .pay img:hover {
+  transform: translateY(-10px);
+}
+
+footer .socials{
+  margin: 0 10px;
+}
+
+#footer-link{
+  font-size: 18px;
+  margin: 0 10px;
+  color: var(--darken);
+  transition: 0.5s ease;
+}
+#footer-link:hover{
+  color: var(--search);
+}
+footer p{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#footer-links{
+  font-size: 16px;
+  color: var(--primary1);
+  transition: 0.5s ease;
+}
+
+#footer-links:hover{
+  color: var(--search);
+}
+
+footer .footer-title{
+  border-bottom: 2px solid var(--darken);
+  width: 30%;
+}
+
+footer .footer-tel{
+  color: var(--darken);
+  transition: 0.5s ease;
+}
+
+footer .footer-tel:hover{
+  color: var(--primary1);
+}
