@@ -1,4 +1,4 @@
-:root{
+ :root{
     --primary: #00A97F;
     --light:rgba(133,198,218,255);
     --dark:rgba(13,13,10,255);
@@ -19,7 +19,6 @@
   box-sizing: border-box;
   font-family: 'League Spartan', sans-serif;
 }
-
 
 .banner .back-details{
     background-image: url(/public/image/work2.jpg);
@@ -68,8 +67,8 @@
     border-radius: 10px;
     font-size: 18px;
     padding: 12px 24px;
-    background-color: var(--primary1);
-    color: white;
+     background-color: var(--primary1); 
+     color: white;
     border: 1px solid transparent;
     transition: 0.5s ease;
   }
@@ -94,4 +93,5 @@
     background-color: var(--primary);
     border: 1px solid transparent;
     color: white;
-  }
+  } 
+

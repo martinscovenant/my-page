@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+// import { signup } from '.public/image/signup.jpeg'
 import './SignUp.css';
 
  export const SignUp = () => {
@@ -91,6 +92,7 @@ import './SignUp.css';
   return (
    
     <div className="App">
+       {/* <img src='public/image/signup.jpeg' /> */}
           <div className="w-[500px]">
          <p className="success">
              </p>

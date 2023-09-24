@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import {Layout}from './components/Layout'
-   import { Home } from './page/Home'
+import { Home } from './page/Home'
 import { SignUp } from './page/Accounts/SignUp';
 import { SignIn } from './page/Accounts/SignIn';
-import { ViewAllReport } from './components/viewAllReport/ViewAllReport';
+import { Update } from './components/Update/Update';
 // import {UpdateReport } from './components/update/UpdateReport';
 import { Route, Routes, useLocation } from 'react-router-dom';
  
@@ -31,7 +31,7 @@ function ScrollToTop() {
         <Route index element={<Home />} />
       <Route path='/SignUp' element={<SignUp/>}/>
     <Route path='/SignIn' element={<SignIn/>}/>   
-   <Route path='/ViewAllReport' element={<ViewAllReport/>}/> 
+   <Route path='/Update' element={<Update/>}/> 
     {/* <Route path='/UpdateReport' element={<UpdateReport />}/>  */}
     </Route>
    </Routes>

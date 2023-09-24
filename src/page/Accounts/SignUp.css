@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
     box-sizing: border-box;
 }
 /* body{
@@ -23,23 +24,16 @@ h3{
     font-size: 20px;
 }
 
-.success{
-    color: black;
-    font-size: 50px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
-}
 .done{
     /* background: white; */
     padding: 20px;
+    background-color: aquamarine;
     width: 30%;
-    /* position: fixed; */
-    top:10%;
     transform: translate(-50% -50%);
     border-radius: 10px;
     text-align: center;
     cursor: pointer; 
-    margin-top: 40px;
+    margin-top: 0px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 
     0 10px 10px rgba(58, 4, 255, 0.22);
 }

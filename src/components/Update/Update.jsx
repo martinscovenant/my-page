@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './View.css';
 
-export const ViewAllReport = () => {
+export const Update = () => {
     // ============= Initial State Start here =============
     const [date, setDate] = useState ( "");
     const [project, setProject] = useState("");
@@ -54,7 +54,7 @@ export const ViewAllReport = () => {
       };
     // ============= Event Handler End here ===============
   
-    const handleViewAllReport = (e) => {
+    const handleUpdate = (e) => {
       e.preventDefault();
         if (!date) {
           setErrDate("input date");
@@ -207,7 +207,7 @@ export const ViewAllReport = () => {
                     
                   <button
                   className="bst"
-                    onClick={handleViewAllReport}
+                    onClick={handleUpdate}
                   >
                     submit
                   </button>
