@@ -1,33 +1,42 @@
+:root{
+    --primary: #00A97F;
+    --light:rgba(133,198,218,255);
+    --dark:rgba(13,13,10,255);
+    --darker:rgba(234,157,90,255);
+    --lighter:#cbd6cf;
+    --lighter1:#c3dacc86;
+    --lighter2:#e4f0e9da;
+    --darken: #cca27e;
+    --color: orangered;
+    --search: #FF6000;
+    --primary1: #2b3d4c;
+    --primary2: #354d61;
+}
+
 *{
     margin: 0;
     padding: 0;
     overflow-y: hidden;
     box-sizing: border-box;
 }
-/* body{
-    background-image: url(/public/image/back.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-} */
+
 h3{
-    color: white;
+    color: var(--search);
     font-family: 'Tangerine', serif;
     font-size: 40px;
 }
-.bts{
+/* .bts{
     background-color: white;
     color: blue;
     border-radius: 10px;
     width: 7%;
     padding: 1%;
     font-size: 20px;
-}
+} */
 
 .done{
-    /* background: white; */
     padding: 20px;
-    background-color: aquamarine;
+    background-color: var(--lighter1);
     width: 30%;
     transform: translate(-50% -50%);
     border-radius: 10px;
@@ -48,36 +57,33 @@ h3{
    margin: 9px 1px;
    border-radius: 10px;
    background: transparent;
-   border: 1px solid rgb(194, 81, 81);
+   border: 1px solid var(--primary1);
    font-weight:400; 
    color: rgb(36, 8, 8);
    font-size: 22px;
-   /* cursor: pointer; */
  } 
 
  
 
 .done button {
-    background: brown;
+    background: var(--primary1);
      color: white;
      border: 0;
      margin-bottom: 15px;
      border-radius: 20%;
      padding: 4%;
 }
-.name{
-    color: red;
-}
 
 .done button:hover{
-    background: rgb(209, 209, 61) !important;
+    background: transparent !important;
+    border: 1px  solid var(--primary);
     transition: all 0.7s ease-in-out;
     color: blue;
 }
 
 .done p{
     font-size: 16px;
-    color: white;
+    color: var(--primary1);
     margin:0px 0px 17px;
     text-decoration: none;
     font-weight:bold;

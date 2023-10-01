@@ -1,9 +1,11 @@
   *{
     margin: 0;
     padding: 0;
-    /* overflow: hidden; */
-
+    overflow: hidden;
     box-sizing: border-box;
- 
 } 
+
+body{
+  background-color: whitesmoke;
+}
 

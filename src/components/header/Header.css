@@ -174,7 +174,7 @@ button{
   --primary2: #354d61;
 }
 .navbar{
-  background-color: var(--lighter1);
+  background-color: var(--primary2);
 }
 ul {
   list-style-type: none;
