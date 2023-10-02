@@ -7,7 +7,7 @@ export const Header = () => {
   const [headerData, setHeaderData] = useState('');
 
   useEffect(() => {
-    fetch('')
+    fetch('https://example.com/api/header')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -31,9 +31,15 @@ export const Header = () => {
         <li><a href="/">Home</a></li>
         <li><a href="/about">View</a></li>
         <li><a href="/Update">Update</a></li>
-        <li><a className='active' href='/SignUp'>Account</a></li>
-      </ul>
+        </ul>
     </nav>
+        <div className="dropdown">
+  <button className="dropbtn">Accounts</button>
+  <div className="dropdown-content">
+  <a href="SignUp">SignUp</a>
+  <a href="Login">Login</a>
+  </div>
+</div>
   </header>
   );
 };
