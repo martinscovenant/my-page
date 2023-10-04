@@ -8,7 +8,6 @@ import './Home.css'
 export const Home = () => {
   const [apiResponse, setApiResponse] = useState("");
   React.useEffect(() => {
-    setShowHeader(false);
   }, []);
   useEffect(() => {
     axios

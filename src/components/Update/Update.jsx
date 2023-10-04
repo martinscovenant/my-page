@@ -1,220 +1,217 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './View.css';
 
 export const Update = () => {
-    // ============= Initial State Start here =============
-    const [date, setDate] = useState ( "");
+    const [date, setDate] = useState("");
     const [project, setProject] = useState("");
     const [task, setTask] = useState("");
     const [status, setStatus] = useState("");
     const [link, setLink] = useState("");
     const [duration, setDuration] = useState("");
-    // ============= Initial State End here ===============
-    // ============= Error Msg Start here =================
+
     const [errDate, setErrDate] = useState("");
     const [errProject, setErrProject] = useState("");
     const [errTask, setErrTask] = useState("");
     const [errStatus, setErrStatus] = useState("");
     const [errLink, setErrLink] = useState("");
     const [errDuration, setErrDuration] = useState("");
-  
-    // ============= Error Msg End here ===================
+
     const [successMsg, setSuccessMsg] = useState("");
-    // ============= Event Handler Start here =============
+
     const handleDate = (e) => {
-      setDate(e.target.value);
-      setErrDate("");
+        setDate(e.target.value);
+        setErrDate("");
     };
+
     const handleProject = (e) => {
-      setProject(e.target.value);
-      setErrProject("");
+        setProject(e.target.value);
+        setErrProject("");
     };
+
     const handleTask = (e) => {
-      setTask(e.target.value);
-      setErrTask("");
+        setTask(e.target.value);
+        setErrTask("");
     };
+
     const handleStatus = (e) => {
         setStatus(e.target.value);
         setErrStatus("");
-      };
-      const handleLink = (e) => {
+    };
+
+    const handleLink = (e) => {
         setLink(e.target.value);
         setErrLink("");
-      };
-      const handleDuration = (e) => {
+    };
+
+    const handleDuration = (e) => {
         setDuration(e.target.value);
         setErrDuration("");
-      };
+    };
 
-      const LinkValidation = (link) => {
-        return String(link)
-          .toLowerCase()
-         .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
-      };
-    // ============= Event Handler End here ===============
-  
+    const validateLink = (url) => {
+        const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+        return urlRegex.test(url);
+    };
+
     const handleUpdate = (e) => {
-      e.preventDefault();
+        e.preventDefault();
+
         if (!date) {
-          setErrDate("input date");
+            setErrDate("Please input date");
         }
+
         if (!project) {
-          setErrProject("put in ur project name");
-         }
+            setErrProject("Please input project name");
+        }
+
         if (!task) {
-          setErrTask("put in your task name");
+            setErrTask("Please input task name");
         }
 
         if (!status) {
-            setErrStatus("put in ur project name");
-           } 
+            setErrStatus("Please input status");
+        }
 
-           if (!link) {
-            setErrLink("put your link");
-           } else {
-            if (!LinkValidation(link)) {
-              setErrLink("Enter a Valid Link");
+        if (!link) {
+            setErrLink("Please input link");
+        } else {
+            if (!validateLink(link)) {
+                setErrLink("Please enter a valid URL");
             }
-          }
-  
-           if (!duration) {
-            setErrDuration("fill in duration");
-           } 
-           
-        if (
-          date &&
-          project &&
-          task &&
-          status &&
-          link && 
-          LinkValidation(link) &&
-          duration
-        ) {
-          setSuccessMsg(
-            `You have successfully sent your report`
-          );
-          setDate("");
-          setProject("");
-          setTask("");
-          setStatus("");
-          setLink("");
-          setDuration("");
+        }
+
+        if (!duration) {
+            setErrDuration("Please fill in duration");
+        }
+
+        if (date && project && task && status && link && validateLink(link) && duration) {
+            setSuccessMsg("You have successfully sent your report");
+            setDate("");
+            setProject("");
+            setTask("");
+            setStatus("");
+            setLink("");
+            setDuration("");
         }
     };
+
     return (
         <div className="App">
-          {successMsg ? ( 
-            <div className="w-[500px]">
-              <p className="success">
-                {successMsg}
-              </p>
-              <Link to="/">
-                <button
-                  className="bts"
-                >
-                  home
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <form className="done1">
-              < div className="done2">
-                <h4>
-                  Fill in Report
-                </h4>
-                    <input
-                      onChange={handleDate}
-                      value={date}
-                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="date"
-                      placeholder="Date"
-                    />
-                    {errDate && (
-                      <p className="name">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errDate}
-                      </p>
-                    )}
-                    <input
-                      onChange={handleProject}
-                      value={project}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="text"
-                      placeholder="Project"
-                    />
-                    {errProject && (
-                      <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errProject}
-                      </p>
-                    )}
-                    <input
-                      onChange={handleTask}
-                      value={task}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="text"
-                      placeholder="Task"
-                    />
-                    {errTask && (
-                      <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errTask}
-                      </p>
-                    )}
-
-                    <input
-                      onChange={handleStatus}
-                      value={status}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="text"
-                      placeholder="Status"
-                    />
-                    {errStatus && (
-                      <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errStatus}
-                      </p>
-                    )}
-
-                    <input
-                      onChange={handleLink}
-                      value={link}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="url"
-                      placeholder="Link"
-                    />
-                    {errLink && (
-                      <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errLink}
-                      </p>
-                    )}
-
-                   <input
-                      onChange={handleDuration}
-                      value={duration}
-                      className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
-                      type="text"
-                      placeholder="Duration"
-                    />
-                    {errDuration && (
-                      <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
-                        <span className="font-bold italic mr-1">!</span>
-                        {errDuration}
-                      </p>
-                    )}
-                    
-                  <button
-                  className="bst"
-                    onClick={handleUpdate}
-                  >
-                    submit
-                  </button>
+            {successMsg ? (
+                <div className="success-message">
+                    <p className="success">{successMsg}</p>
+                    <Link to="/">
+                        <button className="home-button">Home</button>
+                    </Link>
                 </div>
-            </form>
-          )}
+            ) : (
+                <form className="done1">
+                    <div className="done2">
+                        <h4>Fill in Report</h4>
+                        <label htmlFor="date">Date</label>
+                        <input
+                            id="date"
+                            onChange={handleDate}
+                            value={date}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="date"
+                            placeholder="Date"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errDate}
+                            </p>
+                        )}
+
+                        <label htmlFor="project">Project</label>
+                        <input
+                            id="project"
+                            onChange={handleProject}
+                            value={project}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="text"
+                            placeholder="Project"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errProject}
+                            </p>
+                        )}
+                         
+                         <label htmlFor="task">Task</label>
+                        <input
+                            id="task"
+                            onChange={handleTask}
+                            value={task}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="text"
+                            placeholder="task"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errTask}
+                            </p>
+                        )}
+
+                        <label htmlFor="status">Status</label>
+                        <input
+                            id="status"
+                            onChange={handleStatus}
+                            value={status}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="text"
+                            placeholder="Status"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errStatus}
+                            </p>
+                        )}
+
+                      <label htmlFor="link">Link</label>
+                        <input
+                            id="link"
+                            onChange={handleLink}
+                            value={link}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="link"
+                            placeholder="Link"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errLink}
+                            </p>
+                        )}
+
+                       <label htmlFor="duration">Duration</label>
+                        <input
+                            id="duration"
+                            onChange={handleDuration}
+                            value={duration}
+                            className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
+                            type="text"
+                            placeholder="Duration"
+                        />
+                        {errDate && (
+                            <p className="error">
+                                <span className="font-bold italic mr-1">!</span>
+                                {errDuration}
+                            </p>
+                        )}
+                        
+                        <button className="submit-button" onClick={handleUpdate}>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            )}
         </div>
     );
-  };
-
+};

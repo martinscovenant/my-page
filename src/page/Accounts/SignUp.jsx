@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import './SignUp.css';
+import './SignUp.css'; 
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ export const Signup = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        'https://timesheet-api-main.onrender.com/user/signup',
+       ' https://timesheet-api-main.onrender.com/user/signup', 
         formData,
         {
           headers: {
@@ -104,6 +104,7 @@ export const Signup = () => {
     </div>
   );
 };
+
 
 
 

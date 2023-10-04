@@ -154,4 +154,5 @@ li a {
 
 .dropdown-content a:hover {
   background-color: white;
+  color: black;
 }
