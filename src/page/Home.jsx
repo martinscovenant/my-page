@@ -1,12 +1,11 @@
 
-// Home.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import './Home.css'
 
 export const Home = () => {
-  const [apiResponse, setApiResponse] = useState("");
+  const [apiResponse, setApiResponse] = useState ("");
   React.useEffect(() => {
   }, []);
   useEffect(() => {
@@ -27,7 +26,7 @@ export const Home = () => {
   return (
     <section className="banner">
       <div className="">
-        <p>{apiResponse}</p>
+        {/* <p>{apiResponse}</p> */}
         <div
           id="carouselExampleInterval"
           className="carousel slide"
