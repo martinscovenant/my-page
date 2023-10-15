@@ -219,25 +219,7 @@ export const Signup = () => {
                         </span>
                         {error && formData.userPassword.trim() === '' && <p className='text-red-500 text-center'>   Please setup your password </p>}
                     </div>
-                    {/* <div className="mx-[5%] mt-[5%] mb-[2%] relative ">
-                        <input
-                            id="confirmPassword"
-                            name='confirmPassword'
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Confirm Password"
-                            className={`w-4/5  p-2 border-2 border-gray-500 rounded-md  outline-none ${error && formData.confirmPassword.trim() === '' ? 'border-red-500' : ''}`}
-                        />
-                        <span
-                            className="absolute sm:left-[67%] lg:left-[74%] top-[41%]   transform -translate-y-1/2 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        >
-                            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                        </span>
-                        {error && formData.confirmPassword.trim() === '' && <p className='text-red-500 text-center'>   Retype your password </p>}
-                        {!passwordsMatch && <p className='text-red-500 text-center'>Passwords do not match</p>}
-                    </div> */}
+
                     <button
                         onClick={handleSubmit}
                         className=" bg-green-600 lg:mx-[45%] sm:mx-[25%] mt-2  p-1 w-32 rounded-lg"

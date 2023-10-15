@@ -135,9 +135,9 @@ export const SignIn = () => {
     </div>
   )}
   {isModalOpen && !isOnline && (
-    <div className="modal">
-      <div className="modal-content">
-        <p className="modal-text">
+    <div className="modal-online">
+      <div className="modal-open">
+        <p className="modal-wifi">
           No network/WiFi detected!
         </p>
       </div>
@@ -146,7 +146,7 @@ export const SignIn = () => {
   <div className="login-form">
     <h1 className="login-heading">
       LOGIN
-    </h1>
+     </h1>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <input
@@ -156,7 +156,7 @@ export const SignIn = () => {
           value={formData.emailAddress}
           onChange={handleChange}
           placeholder="Email Address"
-          className={`${
+          className={` ${
             error && formData.emailAddress.trim() === ""
               ? "border-red-500"
               : ""
@@ -181,7 +181,7 @@ export const SignIn = () => {
               ? "border-red-500"
               : ""
           }`}
-        />
+        /> 
         <span
           className="password-toggle"
           onClick={togglePasswordVisibility}
@@ -214,6 +214,5 @@ export const SignIn = () => {
     </form>
   </div>
 </div>
-
   );
 };
