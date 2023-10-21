@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
-import './Signin.css';
-import {
-  faEye,
-  faEyeSlash,
-  faSpinner,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import {  faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Signin.css'
 
 export const SignIn = () => {
   const [loading, setLoading] = useState(false);
@@ -22,10 +18,9 @@ export const SignIn = () => {
     emailAddress: "",
     userPassword: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  // const [showPassword, setShowPassword] = useState(false);
+
+ 
   useEffect(() => {
     if (isModalOpen) {
       const modalCloseTimer = setTimeout(() => {
@@ -34,9 +29,11 @@ export const SignIn = () => {
       return () => clearTimeout(modalCloseTimer);
     }
   }, [isModalOpen]);
+
   const checkNetworkStatus = () => {
     setIsOnline(navigator.onLine);
   };
+
   useEffect(() => {
     checkNetworkStatus();
     window.addEventListener("online", checkNetworkStatus);
@@ -46,6 +43,7 @@ export const SignIn = () => {
       window.removeEventListener("offline", checkNetworkStatus);
     };
   }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -53,8 +51,10 @@ export const SignIn = () => {
       [name]: value,
     }));
   };
+
   const [error, setError] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -62,10 +62,7 @@ export const SignIn = () => {
       setIsModalOpen(true);
       return;
     }
-    if (
-      formData.emailAddress.trim() === "" ||
-      formData.userPassword.trim() === ""
-    ) {
+    if (formData.emailAddress.trim() === '' || formData.userPassword.trim() === '') {
       setError(true);
       setLoading(false);
     } else {
@@ -75,21 +72,19 @@ export const SignIn = () => {
       email: formData.emailAddress,
       password: formData.userPassword,
     };
+
     try {
-      const response = await fetch(
-        "https://timesheet-api-main.onrender.com/user/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": "a57cca53d2086ab3488b358eebbca2e7",
-          },
-          body: JSON.stringify(requestData),
-        }
-      );
+      const response = await fetch('https://timesheet-api-main.onrender.com/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'a57cca53d2086ab3488b358eebbca2e7',
+        },
+        body: JSON.stringify(requestData),
+      });
       if (response.status === 200) {
         const responseData = await response.json();
-        sessionStorage.setItem("accessToken", responseData.accessToken);
+        sessionStorage.setItem('accessToken', responseData.accessToken);
         navigate("/reports");
         console.log("valid ");
       } else {
@@ -102,10 +97,8 @@ export const SignIn = () => {
         setLoading(false);
       }
     } catch (error) {
-      console.error("An error occurred:", error);
-      const errorMessage =
-        error.response?.data?.message ||
-        "An error occurred. Please try again later.";
+      console.error('An error occurred:', error);
+      const errorMessage = error.response?.data?.message || 'An error occurred. Please try again later.';
       setErrorMessages([errorMessage]);
     } finally {
       setLoading(false);
@@ -113,106 +106,71 @@ export const SignIn = () => {
     }
     setFormData((prevData) => ({
       ...prevData,
-      password: "",
+      password: '',
     }));
   };
-  return(<div className="container">
-  <Helmet>
-    <title> SIGN IN </title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="./assets/Images/login-icon.jpeg"
-    />
-  </Helmet>
-  {showModal && (
-    <div className="fixed modal">
-      <div className="modal-content">
-        <p className="modal-text">
-          {modalMessage}
-        </p>
-      </div>
-    </div>
-  )}
-  {isModalOpen && !isOnline && (
-    <div className="modal-online">
-      <div className="modal-open">
-        <p className="modal-wifi">
-          No network/WiFi detected!
-        </p>
-      </div>
-    </div>
-  )}
-  <div className="login-form">
-    <h1 className="login-heading">
-      LOGIN
-     </h1>
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <input
-          type="text"
-          id="emailAddress"
-          name="emailAddress"
-          value={formData.emailAddress}
-          onChange={handleChange}
-          placeholder="Email Address"
-          className={` ${
-            error && formData.emailAddress.trim() === ""
-              ? "border-red-500"
-              : ""
-          }`}
-        />
-        {error && formData.emailAddress.trim() === "" && (
-          <p className="error-text">
-            Email address is required
-          </p>
-        )}
-      </div>
-      <div className="form-group">
-        <input
-          id="userPassword"
-          name="userPassword"
-          value={formData.userPassword}
-          type={showPassword ? "text" : "password"}
-          onChange={handleChange}
-          placeholder="Password"
-          className={`${
-            error && formData.userPassword.trim() === ""
-              ? "border-red-500"
-              : ""
-          }`}
-        /> 
-        <span
-          className="password-toggle"
-          onClick={togglePasswordVisibility}
-        >
-          <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-        </span>
-        {error && formData.userPassword.trim() === "" && (
-          <p className="error-text">Password is required</p>
-        )}
-      </div>
-      <button
-        onClick={handleSubmit}
-        className="login-button"
-        disabled={loading}
-      >
-        {loading ? (
-          <div>
-            <FontAwesomeIcon icon={faSpinner} spin /> <span> Sign In </span>
+
+  return (
+    <div className="center w-100  bg-white">
+      <Helmet>
+        <title> SIGN IN </title>
+      </Helmet>
+      {showModal && (
+        <div className="fixed absolute--fill flex items-center justify-center relative">
+          <div className="bg-white p2 rounded-2 w-60 absolute top-1">
+            <p className="f3 b mb3 tc"> {modalMessage}</p>
           </div>
-        ) : (
-          "Sign In"
-        )}
-      </button>
-      <h2 className="text">
-        Don't have an account?{" "}
-        <Link to="/" className="text-blue-600">
-          SIGN UP
-        </Link>
-      </h2>
-    </form>
-  </div>
-</div>
+        </div>
+      )}
+      {isModalOpen && !isOnline && (
+        <div className="fixed absolute--fill flex items-center justify-center relative">
+          <div className="bg-white p2 rounded-2 w-60 absolute top-1">
+            <p className="f3 b mb3 tc">No network/WiFi detected!</p>
+          </div>
+        </div>
+      )}
+     
+       <h3 > LOGIN </h3> 
+        <form className='form' onSubmit={handleSubmit}>
+            <input
+              type="text"
+              id="emailAddress"
+              name="emailAddress"
+              value={formData.emailAddress}
+              onChange={handleChange}
+              placeholder="Email Address"
+              className={`inputs ${error && formData.emailAddress.trim() === '' ? 'b--red' : ''}`}
+            />
+            {error && formData.emailAddress.trim() === '' && <p className='red tc'>enter emailAddress</p>}
+         
+            <input
+              id='userPasword'
+              name='userPassword'
+              value={formData.userPassword}
+              type="password"
+              onChange={handleChange}
+              placeholder="Password"
+              className={`inputs ${error && formData.userPassword.trim() === '' ? 'b--red' : ''}`}
+            />
+
+            {error && formData.userPassword.trim() === '' && <p className='red tc'>enter password⚠️</p>}
+          <div className='bts'>
+          <button
+            onClick={handleSubmit}
+            className="my-bts"
+            disabled={loading}
+          >
+            {loading ? (
+              <div> <FontAwesomeIcon icon={faSpinner} spin /> <span> Sign In </span> </div>
+            ) : (
+              "Sign In"
+            )}
+          </button>
+          </div>
+          <h2 className='tc my-1 fw-serif'>
+            Don't have an account? <Link to="/" className='blue f6 fw6'> SIGN UP </Link>
+          </h2>
+        </form>
+      </div>
   );
 };

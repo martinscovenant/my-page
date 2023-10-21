@@ -14,7 +14,7 @@ export const Header = () => {
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/RecordReport">Report</a></li>
+          <li><a href="/ViewSpecificReport">View</a></li>
           <li><a href="/UpdateReport">Update</a></li>
 
       <div className="dropdown">
@@ -23,8 +23,8 @@ export const Header = () => {
         </button>
         {isOpen && (
           <div className="dropdown-content">
-            <a href="/SignUp">Signup</a>
-            <a href="/Login">Login</a>
+            <a href="/Signup">Signup</a>
+            <a href="/Signin">Login</a>
           </div>
         )}
       </div>

@@ -67,9 +67,10 @@
   }
   
   #button-link {
+    width: 10%;
     border-radius: 10px;
     font-size: 18px;
-    padding: 12px 24px;
+    padding: 10px 20px;
      background-color: var(--primary1); 
      color: white;
     border: 1px solid transparent;

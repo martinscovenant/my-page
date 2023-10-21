@@ -123,14 +123,13 @@ li a {
   transition: 0.8s ease;
 } 
 
-/* Dropdown.css */
+
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
 .dropdown-button {
-  /* background-color: #333; */
   color: white;
   border: none;
   padding: 10px;
@@ -139,8 +138,7 @@ li a {
 
 .dropdown-content {
   display: block;
-  /* position: absolute; */
-  background-color: transperant;
+  background-color: transperant !important;
   color: white;
   z-index: 1;
 }

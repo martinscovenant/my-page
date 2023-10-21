@@ -36,9 +36,9 @@ export const Home = () => {
             <div className="back-details">
               <p className="mb-3"></p>
 
-              <Link to="/" className="center btn btn-primary" id="button-link">
+              {/* <Link to="/" className="center  btn-primary" id="button-link">
                 Learn more
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
