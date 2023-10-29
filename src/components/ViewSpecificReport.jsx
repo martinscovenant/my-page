@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+
 
 export const ViewSpecificReport = () => {
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ export const ViewSpecificReport = () => {
   const [userData, setUserData] = useState({});
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     async function fetchReportData() {
       try {
         const response = await fetch(
@@ -38,16 +38,10 @@ export const ViewSpecificReport = () => {
     }
     fetchReportData();
   }, []);
-  // const navigate = useNavigate();
-  // const handleLogout = () => {
-  //   sessionStorage.removeItem('access_token');
-  //   navigate('/');
-  // };
   return (
     <div>
       <Helmet>
         <title>VIEW SPECIFIC REPORTS</title>
-        <link rel="icon" type="image/png" href="./assets/Images/adviewicon.png" />
       </Helmet>
       {loading ? (
         <div className="tc mt-5">
@@ -58,17 +52,15 @@ export const ViewSpecificReport = () => {
       ) : (
         <div>
           <div className="w-100 pv1 flex justify-end mt-4">
-            <Link to="/view-reports">
-              <button className="bg-blue white br1 pv1 ph2 ma1">GO BACK</button>
+            <Link to="/viewSpecificReport">
+              <button className="bg-blue white br1 pv1 ph2 ma1"> BACK</button>
             </Link>
-            {/* <button className="bg-blue white br1 pv1 mr2" onClick={handleLogout}>
-              LOGOUT
-            </button> */}
+            
           </div>
           <div className="tc mt-4">
             <h2 className="fw9 f2">User Details</h2>
             <p>
-              <span className="fw6">Email:</span> {userData.email}
+              <span className="fw6">E-mail:</span> {userData.email}
             </p>
             <p>
               <span className="fw6">Username:</span> {userData.username}
