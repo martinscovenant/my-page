@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { faEye, faEyeSlash, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Signup = () => {
@@ -21,11 +21,7 @@ export const Signup = () => {
         userPassword: "",
         confirmPassword: "",
     });
-    // const [showPassword, setShowPassword] = useState(false);
-    // const [passwordsMatch, setPasswordsMatch] = useState(true);
-    // const togglePasswordVisibility = () => {
-    //     setShowPassword(!showPassword);
-    // };
+   
     const navigate = useNavigate()
     useEffect(() => {
         if (isModalOpen) {
@@ -72,7 +68,7 @@ export const Signup = () => {
         }
         if (formData.userFirstName.trim() === '' || formData.userLastName.trim() === '' || formData.userName.trim() === '' || formData.email.trim() === '' || formData.userPassword.trim() === '' || formData.confirmPassword.trim() === '') {
             setError(true);
-        } else if (formData.userPassword !== formData.confirmPassword) {
+        } else if (formData.userPassword) {
             setError(false);
             setPasswordsMatch(false);
         } else {
@@ -116,7 +112,6 @@ export const Signup = () => {
             setFormData((prevData) => ({
                 ...prevData,
                 userPassword: '',
-                confirmPassword: '',
             }));
         }
     }
@@ -212,33 +207,9 @@ export const Signup = () => {
                             placeholder="Password"
                             className={`w-4/5  p-2 border-2 border-gray-500 rounded-md  outline-none ${error && formData.userPassword.trim() === '' ? 'border-red-500' : ''}`}
                         />
-                        <span
-                            className="absolute  sm:left-[67%] lg:left-[74%] top-[41%] transform -translate-y-1/2 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        >
-                            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                        </span>
                         {error && formData.userPassword.trim() === '' && <p className='text-red-500 text-center'>   Please setup your password </p>}
                     </div>
-                    <div className="mx-[5%] mt-[5%] mb-[2%] relative ">
-                        <input
-                            id="confirmPassword"
-                            name='confirmPassword'
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Confirm Password"
-                            className={`w-4/5  p-2 border-2 border-gray-500 rounded-md  outline-none ${error && formData.confirmPassword.trim() === '' ? 'border-red-500' : ''}`}
-                        />
-                        <span
-                            className="absolute sm:left-[67%] lg:left-[74%] top-[41%]   transform -translate-y-1/2 cursor-pointer"
-                            onClick={togglePasswordVisibility}
-                        >
-                            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                        </span>
-                        {error && formData.confirmPassword.trim() === '' && <p className='text-red-500 text-center'>   Retype your password </p>}
-                        {!passwordsMatch && <p className='text-red-500 text-center'>Passwords do not match</p>}
-                    </div>
+                   
                     <button
                         onClick={handleSubmit}
                         className=" bg-gray-400 lg:mx-[45%] sm:mx-[25%] mt-2  p-1 w-32 rounded-lg"
