@@ -6,7 +6,7 @@ import {  faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Signin.css'
 
-export const Signin = () => {
+export const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,9 +18,6 @@ export const Signin = () => {
     emailAddress: "",
     userPassword: "",
   });
-
-
- 
   useEffect(() => {
     if (isModalOpen) {
       const modalCloseTimer = setTimeout(() => {
