@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import './Home.css'
 
 export const Home = () => {
+
   const [apiResponse, setApiResponse] = useState ("");
+  const [isOpen, setIsOpen] = useState(false);
+
   React.useEffect(() => {
   }, []);
   useEffect(() => {
@@ -24,9 +26,19 @@ export const Home = () => {
   }, []);
 
   return (
+    <div>
+      <header className="navbar">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          {/* <li><a href="/ViewSpecificReport">View</a></li> */}
+          {/* <li><a href="/Signin">Login</a></li> */}
+          <li><a href="/Signup">signup</a></li>
+      </ul>
+      </nav>
+    </header>
     <section className="banner">
       <div className="">
-        {/* <p>{apiResponse}</p> */}
         <div
           id="carouselExampleInterval"
           className="carousel slide"
@@ -35,15 +47,12 @@ export const Home = () => {
           <div className="carousel-inner">
             <div className="back-details">
               <p className="mb-3"></p>
-
-              {/* <Link to="/" className="center  btn-primary" id="button-link">
-                Learn more
-              </Link> */}
             </div>
           </div>
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

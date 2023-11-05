@@ -6,7 +6,7 @@ import {  faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Signin.css'
 
-export const SignIn = () => {
+export const Signin = () => {
   const [loading, setLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ export const SignIn = () => {
     emailAddress: "",
     userPassword: "",
   });
-  // const [showPassword, setShowPassword] = useState(false);
+
 
  
   useEffect(() => {
@@ -62,7 +62,8 @@ export const SignIn = () => {
       setIsModalOpen(true);
       return;
     }
-    if (formData.emailAddress.trim() === '' || formData.userPassword.trim() === '') {
+    if (formData.emailAddress.trim() === '' 
+    || formData.userPassword.trim() === '') {
       setError(true);
       setLoading(false);
     } else {
@@ -85,7 +86,7 @@ export const SignIn = () => {
       if (response.status === 200) {
         const responseData = await response.json();
         sessionStorage.setItem('accessToken', responseData.accessToken);
-        navigate("/reports");
+        navigate("/UpdateReport");
         console.log("valid ");
       } else {
         setError(true);
@@ -111,27 +112,28 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="center w-100  bg-white">
+    <div className=" center w-auto bg-white">
       <Helmet>
         <title> SIGN IN </title>
       </Helmet>
       {showModal && (
         <div className="fixed absolute--fill flex items-center justify-center relative">
-          <div className="bg-white p2 rounded-2 w-60 absolute top-1">
-            <p className="f3 b mb3 tc"> {modalMessage}</p>
+          <div className="bg-white p2 rounded-2 w-40 absolute top-2">
+            <p className="f5 b text-red-500 mb2 tc"> {modalMessage}</p>
           </div>
         </div>
       )}
       {isModalOpen && !isOnline && (
         <div className="fixed absolute--fill flex items-center justify-center relative">
-          <div className="bg-white p2 rounded-2 w-60 absolute top-1">
-            <p className="f3 b mb3 tc">No network/WiFi detected!</p>
+          <div className="bg-white p2 rounded-2 w-30 absolute top-1">
+            <p className="f5 b text-red-500 mb3 tc">Check Your Internet Connection</p>
           </div>
         </div>
       )}
-     
-       <h3 > LOGIN </h3> 
-        <form className='form' onSubmit={handleSubmit}>
+      <div className='form2 border w-50'>
+        < form className='form' onSubmit={handleSubmit}>
+        <h3 > LOGIN </h3> 
+          <lable for="email">E-mail:</lable><br />
             <input
               type="text"
               id="emailAddress"
@@ -139,10 +141,10 @@ export const SignIn = () => {
               value={formData.emailAddress}
               onChange={handleChange}
               placeholder="Email Address"
-              className={`inputs ${error && formData.emailAddress.trim() === '' ? 'b--red' : ''}`}
-            />
+              className= {`inputs ${error && formData.emailAddress.trim() === '' ? 'b--red' : ''}`}
+            /><br />
             {error && formData.emailAddress.trim() === '' && <p className='red tc'>enter emailAddress</p>}
-         
+           <lable for="password">Password:</lable><br />
             <input
               id='userPasword'
               name='userPassword'
@@ -151,7 +153,7 @@ export const SignIn = () => {
               onChange={handleChange}
               placeholder="Password"
               className={`inputs ${error && formData.userPassword.trim() === '' ? 'b--red' : ''}`}
-            />
+            /><br />
 
             {error && formData.userPassword.trim() === '' && <p className='red tc'>enter password⚠️</p>}
           <div className='bts'>
@@ -168,9 +170,10 @@ export const SignIn = () => {
           </button>
           </div>
           <h2 className='tc my-1 fw-serif'>
-            Don't have an account? <Link to="/" className='blue f6 fw6'> SIGN UP </Link>
+            Don't have an account? <Link to="/Signup" className='blue f6 fw6'> SIGN UP </Link>
           </h2>
         </form>
+      </div>
       </div>
   );
 };

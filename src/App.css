@@ -1,11 +1,14 @@
-  *{
-    margin: 0;
-    padding: 0;
+*{
+    margin: auto;
+    padding: auto;
     /* overflow: hidden; */
     box-sizing: border-box;
 } 
 
 body{
-  background-color: whitesmoke;
+  background: linear-gradient(to right, #f3bdbd, #7e5282);
 }
 
+h1{
+  
+}

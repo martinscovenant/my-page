@@ -1,15 +1,13 @@
 body {
-    background-color: #f37900;
+
     margin: 0%;
     padding: 0%;
-    overflow: hidden;
   }
 .center {
-    background: #fff;
+    background-color:whitesmoke;
   
     border-radius: 2px;
-  
-    /* height: 500px; */
+
   
     margin: 1rem;
   
@@ -20,43 +18,39 @@ body {
     transition: all 0.5s ease;
   
     border-radius: 5px;
+
   
-    /* margin: auto; */
-  
-    margin-top: 0%;
-  
-    background-color: #f2f2f2;
-  
+    margin-top: 5%;
     padding: 10px;
   }
   
-  /* .center:hover {
+  .form2:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 022);
-  } */
-  
+    
+    transition: all 0.5s ease;
+  } 
   
   
   .form {
     position: center;
-  }
+   background: whitesmoke;
+     }
   
   h3 {
     text-align: center;
-    font-size: 25px;
+    font-size: 40px;
   }
   
   .inputs {
-    border-radius: 10px solid pink;
-  
     width: 100%;
   
-    padding: 12px 20px;
+    padding: 10px;;
   
     margin: 8px 0;
   
     display: inline-block;
   
-    border: 1px solid #ccc;
+    border: 1px solid grey;
   
     border-radius: 4px;
   
@@ -76,7 +70,7 @@ body {
   
     border-radius: 8px;
   
-    background-color: blue;
+    background-color: gray;
   
     color: white;
   
