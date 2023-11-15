@@ -155,7 +155,7 @@ export const SignUp = () => {
           </h1>
         </p>
         <form onSubmit={handleSubmit}>
-          <div className="mx-[5%] my-[3%]">
+          <div className="form-control">
             <input
               type="text"
               id="userFirstName"
@@ -175,7 +175,7 @@ export const SignUp = () => {
               </p>
             )}
           </div>
-          <div className="mx-[5%] my-[3%]">
+          <div className="form-control">
             <input
               type="text"
               id="userMiddleName"
@@ -195,7 +195,7 @@ export const SignUp = () => {
               </p>
             )}
           </div>
-          <div className="mx-[5%] my-[3%]">
+          <div className="form-control">
             <input
               type="text"
               id="userLastName"
@@ -215,7 +215,7 @@ export const SignUp = () => {
               </p>
             )}
           </div>
-          <div className="mx-[5%] my-[4%]">
+          <div className="form-control">
             <input
               type="text"
               id="userName"
@@ -231,7 +231,7 @@ export const SignUp = () => {
               <p className="text-red-500 text-center"> Please choose a username </p>
             )}
           </div>
-          <div className="mx-[5%] my-[4%]">
+          <div className="form-control">
             <input
               type="email"
               id="email"
@@ -249,7 +249,7 @@ export const SignUp = () => {
               </p>
             )}
           </div>
-          <div className="mx-[5%] my-[3%] relative ">
+          <div className="form-control">
             <input
               id="userPassword"
               name="userPassword"
